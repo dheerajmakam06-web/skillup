@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="card account-danger-card">
+  <div class="card-body p-4">
+    <span class="eyebrow">ACCOUNT SETTINGS</span>
+    <h2>Delete your account</h2>
+    <p class="text-muted">This permanently removes your profile, saved skills, resume information, and account access.</p>
+    <form method="post" class="mt-4">
+      <label class="form-label" for="confirmation">Type DELETE to confirm</label>
+      <input class="form-control" id="confirmation" name="confirmation" autocomplete="off" required>
+      <div class="d-flex gap-2 mt-4">
+        <a class="btn btn-outline-secondary" href="{{ url_for('student.dashboard') if user.role == 'student' else url_for('industry.dashboard') }}">Cancel</a>
+        <button class="btn btn-danger" type="submit">Delete my account</button>
+      </div>
+    </form>
+  </div>
+</section>
+{% endblock %}

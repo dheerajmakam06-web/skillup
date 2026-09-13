@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="dashboard-heading mb-4">
+  <div class="journey-steps mb-3" aria-label="Your Mind Mates journey"><span class="journey-step active"><strong>1</strong> Login</span><span class="journey-line"></span><span class="journey-step active"><strong>2</strong> Dashboard</span><span class="journey-line"></span><span class="journey-step"><strong>3</strong> Job ready</span></div>
+  <span class="eyebrow">PERSONAL CAREER COMMAND CENTER</span>
+  <h2>Welcome, {{ user.name }}</h2>
+  <p class="text-muted mb-0">Your education, skills, resume, and employer opportunities in one place.</p>
+</div>
+
+<section class="resume-analysis card mb-4">
+  <div class="card-body p-4">
+    <div class="d-flex flex-wrap justify-content-between align-items-start gap-3">
+      <div><span class="eyebrow">STEP 1 · RESUME ANALYSIS</span><h3>What can companies see in your profile?</h3><p class="text-muted mb-0">We compare your resume and added skills with current employer requirements.</p></div>
+      {% if resume_analysis.uploaded %}<span class="analysis-status">Resume analysed</span>{% endif %}
+    </div>
+    {% if resume_analysis.uploaded %}
+      <div class="analysis-result mt-3"><strong>{{ resume_analysis.filename }}</strong><span>{{ resume_analysis.skills|length }} skills detected</span><a class="btn btn-sm btn-outline-primary" href="{{ url_for('student.resume_analysis') }}">Review analysis</a></div>
+      <div class="skill-pills mt-3">{% for skill in resume_analysis.skills %}<span class="skill-pill">{{ skill }}</span>{% endfor %}</div>
+      {% if profile.projects_text or profile.certifications_text or profile.experience_text %}<div class="row g-3 mt-1 small"><div class="col-md-4"><strong>Projects</strong><p>{{ profile.projects_text|replace('\n', ' · ') or 'Not detected' }}</p></div><div class="col-md-4"><strong>Certifications</strong><p>{{ profile.certifications_text|replace('\n', ' · ') or 'Not detected' }}</p></div><div class="col-md-4"><strong>Experience</strong><p>{{ profile.experience_text|replace('\n', ' · ') or 'Not detected' }}</p></div></div>{% endif %}
+      {% if best_match %}<div class="best-match mt-3"><div><span class="eyebrow">HIGHEST CURRENT MATCH</span><strong>{{ best_match.company.name }} · {{ best_match.role }}</strong><small>{{ best_match.company.location }}{% if best_match.course_match %} · Course aligned{% endif %}</small></div><span class="best-match-score">{{ best_match.match_percent }}%</span></div>{% endif %}
+    {% else %}
+      <div class="analysis-empty mt-3"><span>Upload your resume to find the companies most likely to accept your current skills.</span><a class="btn btn-primary btn-sm" href="{{ url_for('student.profile') }}">Upload resume</a></div>
+    {% endif %}
+  </div>
+</section>
+
+<div class="row g-4">
+  <div class="col-lg-8">
+    <section class="card guidance-card mb-4"><div class="card-body p-4"><span class="eyebrow">YOUR CURRENT STAGE</span><h4>{{ guidance.title }}</h4><p class="text-muted">{{ guidance.description }}</p><div class="skill-pills mb-3">{% for item in guidance.focus %}<span class="skill-pill">{{ item }}</span>{% endfor %}</div><p class="mb-0"><strong>Recommended next step:</strong> {{ guidance.next_step }}</p></div></section>
+    <section class="card border-success mb-4"><div class="card-body p-4"><span class="eyebrow">STEP 2 · REQUIRED STUDIES</span><h4>What to learn next</h4><p class="text-muted">Based on your {{ profile.starting_class or 'current' }} stage{% if profile.branch %} and {{ profile.branch }}{% endif %}.</p><div class="skill-pills">{% for study in required_studies %}<span class="skill-pill">{{ study }}</span>{% endfor %}</div><a class="btn btn-sm btn-outline-success mt-3" href="{{ url_for('student.roadmap') }}">Open full study roadmap</a></div></section>
+    <section class="next-actions card mb-4"><div class="card-body p-4"><span class="eyebrow">YOUR NEXT STEPS</span><div class="row g-3 mt-1"><div class="col-md-4"><strong>01. Complete profile</strong><br><small class="text-muted">Tell us your stage and interests.</small></div><div class="col-md-4"><strong>02. Build skills</strong><br><small class="text-muted">Follow your personalized roadmap.</small></div><div class="col-md-4"><strong>03. Upload resume</strong><br><small class="text-muted">Compare yourself with employers.</small></div></div></div></section>
+    <section class="card mb-4"><div class="card-body p-4"><span class="eyebrow">PERSONALIZED CAREER RECOMMENDATIONS</span><h4>Based on your selected goal, interests, education, and skills</h4><div class="row g-3">{% for recommendation in career_recommendations[:4] %}<div class="col-md-6"><a class="career-recommendation-row" href="{{ url_for('career.detail', career_id=recommendation.career.id) }}"><strong>{{ recommendation.career.title }}</strong><span>{{ recommendation.match_percent }}%</span><small>Missing: {{ recommendation.missing_skills|join(', ') or 'No listed gaps' }}</small></a></div>{% endfor %}</div></div></section>
+  </div>
+  <aside class="col-lg-4"><div class="readiness-panel card"><div class="card-body p-4"><span class="eyebrow">JOB READINESS</span>{% if readiness %}<div class="readiness-score">{{ readiness.overall }}<small>%</small></div>{% for k,v in readiness.breakdown.items() %}<div class="readiness-row"><span>{{ k }}</span><strong>{{ v }}%</strong></div><div class="progress mb-2"><div class="progress-bar" style="width: {{ v }}%"></div></div>{% endfor %}{% else %}<p>No data yet.</p>{% endif %}</div></div><div class="card mt-3"><div class="card-body"><small class="text-muted">Education</small><strong class="d-block">{{ profile.education_level or 'Not set' }}{% if profile.course %} · {{ profile.course }}{% endif %}</strong><small class="text-muted mt-2 d-block">Interests</small><strong class="d-block">{{ profile.interests or 'Not set' }}</strong><small class="text-muted mt-2 d-block">Career goal</small><strong class="d-block">{{ profile.career_goal or 'Not set' }}</strong><a class="btn btn-outline-secondary btn-sm mt-3" href="{{ url_for('student.profile') }}">Edit profile</a></div></div></aside>
+</div>
+
+<section class="company-directory mt-5">
+  <div class="d-flex flex-wrap justify-content-between align-items-end mb-3"><div><span class="eyebrow">STEP 3 · EMPLOYER MATCHING</span><h3>Companies looking for your skills</h3><p class="text-muted mb-0">Estimated profile match, ranked with skills 50%, projects 20%, education 15%, experience 10%, certifications 5%.</p></div><a href="{{ url_for('student.companies') }}">Open full directory</a></div>
+  {% for category, label in [('top_rated', 'Top-rated companies'), ('startup', 'Startups and fast-growing companies'), ('training', 'Training and skill-building companies'), ('internship', 'Internship companies'), ('established', 'Established companies')] %}
+    {% if company_groups[category] %}<div class="company-group mb-4"><div class="company-group-title"><h4>{{ label }}</h4><span>{{ company_groups[category]|length }} roles</span></div><div class="row g-3">{% for match in company_groups[category] %}<div class="col-md-6 col-xl-4"><article class="company-card card h-100"><div class="card-body"><div class="d-flex justify-content-between gap-2"><h5>{{ match.company.name }}</h5><span class="match-score">{{ match.match_percent }}%</span></div><p class="small text-muted mb-1">{{ match.role }}</p><p class="small text-muted">{{ match.company.industry }} · {{ match.company.location }}</p><div class="company-rating">★ {{ '%.1f'|format(match.company.rating or 0) }} <span>match strength</span></div><small>Matched: {{ match.matched|join(', ') or 'No matched skills yet' }}</small>{% if match.missing %}<small class="d-block text-danger mt-2">Build: {{ match.missing|join(', ') }}</small>{% endif %}<a class="btn btn-sm btn-outline-primary mt-3" href="{{ url_for('student.company_detail', company_id=match.company.id, role=match.role) }}">Review company fit</a>{% if match.company.official_url %}<a class="btn btn-sm btn-primary mt-3" href="{{ match.company.official_url }}" target="_blank" rel="noopener">Official careers</a>{% endif %}</div></article></div>{% endfor %}</div></div>{% endif %}
+  {% endfor %}
+  {% if not matches %}<div class="analysis-empty"><span>Add skills or upload a resume to see all company matches.</span><a class="btn btn-primary btn-sm" href="{{ url_for('student.profile') }}">Add skills</a></div>{% endif %}
+</section>
+{% endblock %}

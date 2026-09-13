@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>After My Studies</h2>
+<form method="post">
+  <div class="mb-3">
+    <label>Select Target Job</label>
+    <select name="career_id" class="form-control">
+      {% for c in careers %}
+        <option value="{{ c.id }}">{{ c.title }}</option>
+      {% endfor %}
+    </select>
+  </div>
+  <button class="btn btn-primary">Analyze</button>
+</form>
+
+{% if result %}
+  <hr>
+  <h4>Analysis for {{ result.career }}</h4>
+  <p>Match: {{ result.match_percent }}%</p>
+  <h5>Matched Skills</h5>
+  <ul>{% for s in result.matched_skills %}<li>{{ s }}</li>{% endfor %}</ul>
+  <h5>Missing Skills</h5>
+  <ul>{% for s in result.missing_skills %}<li>{{ s }}</li>{% endfor %}</ul>
+  <h5>Recommendations</h5>
+  <ul>{% for r in result.recommendations %}<li>{{ r.skill }} - {{ r.priority }}</li>{% endfor %}</ul>
+{% endif %}
+{% endblock %}

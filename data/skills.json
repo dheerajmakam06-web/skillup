@@ -1,0 +1,19 @@
+{
+  "Programming": ["Python", "Java", "C", "C++", "JavaScript", "TypeScript", "PHP", ".NET"],
+  "Web Development": ["HTML", "CSS", "React", "Angular", "Node.js", "Django", "Flask", "REST APIs"],
+  "Data Science": ["SQL", "Pandas", "NumPy", "Matplotlib", "Statistics", "Data Visualization", "Power BI", "Tableau"],
+  "Artificial Intelligence": ["Machine Learning", "Deep Learning", "TensorFlow", "PyTorch", "NLP", "Computer Vision"],
+  "Database": ["MySQL", "PostgreSQL", "MongoDB", "Oracle", "Database Design"],
+  "Cloud Computing": ["AWS", "Azure", "Google Cloud"],
+  "Cybersecurity": ["Cybersecurity", "Networking", "Linux", "Ethical Hacking"],
+  "DevOps": ["Git", "GitHub", "Docker", "Kubernetes", "MLOps"],
+  "Mobile Development": ["Flutter", "Android", "iOS"],
+  "UI/UX": ["Figma", "User Research", "Wireframing"],
+  "Engineering": ["AutoCAD", "MATLAB", "Robotics", "IoT", "Electronics"],
+  "Business": ["Business Analysis", "Project Management", "Entrepreneurship"],
+  "Finance": ["Excel", "Accounting", "Financial Analysis"],
+  "Digital Marketing": ["SEO", "Content Marketing", "Social Media Marketing"],
+  "Communication": ["Communication", "Leadership", "Teamwork", "Presentation"],
+  "Problem Solving": ["Problem Solving", "Critical Thinking", "Research"],
+  "Other": ["Other"]
+}

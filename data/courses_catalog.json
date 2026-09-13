@@ -1,0 +1,22 @@
+{
+  "Engineering": ["B.Tech", "B.E."],
+  "Science": ["B.Sc", "M.Sc"],
+  "Computer": ["BCA", "MCA"],
+  "Commerce": ["B.Com", "M.Com"],
+  "Management": ["BBA", "MBA", "BBM"],
+  "Arts": ["BA", "MA"],
+  "Architecture": ["B.Arch", "M.Arch"],
+  "Medical": ["MBBS", "MD", "MS", "BDS", "MDS", "BAMS", "BHMS", "BUMS"],
+  "Pharmacy": ["B.Pharm", "M.Pharm", "Pharm.D"],
+  "Nursing": ["B.Sc Nursing", "M.Sc Nursing", "GNM", "ANM"],
+  "Law": ["LL.B", "LL.M", "BA LL.B", "BBA LL.B", "B.Com LL.B"],
+  "Education": ["B.Ed", "M.Ed", "D.El.Ed"],
+  "Agriculture": ["B.Sc Agriculture", "M.Sc Agriculture", "B.Tech Agricultural Engineering"],
+  "Veterinary": ["B.V.Sc & A.H.", "M.V.Sc"],
+  "Design": ["B.Des", "M.Des"],
+  "Fine Arts": ["BFA", "MFA"],
+  "Social Science": ["BSW", "MSW"],
+  "Journalism": ["BJMC", "MJMC"],
+  "Hotel Management": ["BHM", "MHM"],
+  "Other": ["Diploma", "ITI", "Certificate", "Other"]
+}

@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mind Mates | Education to Employment</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/style.css" rel="stylesheet">
+  </head>
+  <body>
+  <button id="skillup-agent-toggle" class="skillup-agent-toggle" type="button" aria-expanded="false" aria-controls="skillup-agent-panel" title="Open SkillUp AI Assistant">AI</button>
+  <aside id="skillup-agent-panel" class="skillup-agent-panel" hidden aria-label="SkillUp AI Assistant">
+    <div class="agent-header"><div><strong>SkillUp AI Assistant</strong><small>Ask about the whole project</small></div><button type="button" class="agent-close" id="skillup-agent-close" aria-label="Close assistant">×</button></div>
+    <div id="skillup-agent-messages" class="agent-messages"><div class="agent-message agent">Ask me about courses, roadmaps, progress, routes, login, resume analysis, company matching, or deployment.</div></div>
+    <div class="agent-prompts"><button type="button" data-agent-question="How does the roadmap work?">Roadmap</button><button type="button" data-agent-question="Which file controls course selection?">Files</button><button type="button" data-agent-question="How is progress stored?">Progress</button></div>
+    <form id="skillup-agent-form" class="agent-form"><input id="skillup-agent-input" type="text" placeholder="Ask about SkillUp..." autocomplete="off"><button type="submit">Send</button></form>
+  </aside>
+  <div class="app-shell {% if session.get('user_id') %}has-sidebar{% endif %}">
+    {% if session.get('user_id') %}
+    <aside class="app-sidebar" aria-label="Main navigation">
+      <div class="sidebar-label">YOUR WORKSPACE</div>
+      {% if session.get('user_role') == 'industry' %}
+        <a class="sidebar-link" href="{{ url_for('industry.dashboard') }}">Dashboard</a>
+      {% else %}
+        <a class="sidebar-link" href="{{ url_for('student.dashboard') }}">Dashboard</a>
+        <a class="sidebar-link" href="{{ url_for('student.profile') }}">My Profile</a>
+        <a class="sidebar-link" href="{{ url_for('student.roadmap') }}">My Roadmap</a>
+        <a class="sidebar-link" href="{{ url_for('student.companies') }}">Company Matches</a>
+        <a class="sidebar-link" href="{{ url_for('student.after_studies') }}">After Studies</a>
+      {% endif %}
+      <div class="sidebar-label mt-4">EXPLORE</div>
+      <a class="sidebar-link" href="{{ url_for('career.explorer') }}">Career Explorer</a>
+      <a class="sidebar-link" href="{{ url_for('industry.demand') }}">Industry Demand</a>
+      <a class="sidebar-link" href="{{ url_for('about') }}">About</a>
+      <a class="sidebar-link" href="{{ url_for('auth.login') }}#passkey-login">Fingerprint / face sign-in</a>
+      <a class="sidebar-link" href="{{ url_for('auth.logout') }}">Logout</a>
+      <a class="sidebar-link sidebar-danger" href="{{ url_for('auth.delete_account') }}">Delete my account</a>
+    </aside>
+    {% endif %}
+    <main class="container mt-4">
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <div class="alert alert-info">{{ messages[0] }}</div>
+      {% endif %}
+    {% endwith %}
+      {% block content %}{% endblock %}
+    </main>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="{{ url_for('static', filename='js/assistant.js') }}"></script>
+  </body>
+</html>

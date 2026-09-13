@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="resume-analysis-hero mb-4"><span class="eyebrow">RESUME ANALYSIS COMPLETE</span><h1>Review what we found</h1><p>Your resume was processed privately. Check the detected information before continuing to your personalized roadmap and company matches.</p><span class="analysis-status">{{ profile.resume_name or profile.resume or 'Resume uploaded' }}</span></div>
+<div class="row g-4">
+  <main class="col-lg-8">
+    <section class="card p-4 mb-4"><div class="section-heading"><span class="section-icon">01</span><div><h3>Detected skills</h3><p>These skills were found in your resume and added to your profile without duplicates.</p></div></div><div class="skill-pills">{% for skill in extracted_skills %}<span class="skill-pill">{{ skill }}</span>{% else %}<p class="text-muted mb-0">No skills were detected. Add them manually from your profile.</p>{% endfor %}</div></section>
+    <section class="card p-4 mb-4"><div class="section-heading"><span class="section-icon coral">02</span><div><h3>Projects</h3><p>Projects help identify suitable career paths and company roles.</p></div></div><div class="analysis-list">{% for project in projects %}<div class="analysis-list-item">{{ project }}</div>{% else %}<p class="text-muted mb-0">No project section was detected.</p>{% endfor %}</div></section>
+    <div class="row g-4"><div class="col-md-6"><section class="card p-4 h-100"><h4>Certifications</h4>{% for item in certifications %}<p class="mb-2">{{ item }}</p>{% else %}<p class="text-muted mb-0">Not detected</p>{% endfor %}</section></div><div class="col-md-6"><section class="card p-4 h-100"><h4>Experience</h4>{% for item in experience %}<p class="mb-2">{{ item }}</p>{% else %}<p class="text-muted mb-0">Not detected</p>{% endfor %}</section></div></div>
+  </main>
+  <aside class="col-lg-4"><section class="card p-4"><span class="eyebrow">NEXT STEPS</span><h3>What to do now</h3><ol class="analysis-instructions"><li>Review the detected skills and add anything missing.</li><li>Check your course, branch, interests, and career goal.</li><li>Build at least one project related to your target career.</li><li>Open the dashboard to see career and company matches.</li><li>Use the missing skills as your next learning plan.</li></ol><a class="btn btn-primary w-100" href="{{ url_for('student.profile') }}">Review my profile</a><a class="btn btn-outline-primary w-100 mt-2" href="{{ url_for('student.dashboard') }}">Continue to dashboard</a></section></aside>
+</div>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="mb-4"><span class="eyebrow">INDUSTRY PARTNERS</span><h2>Publish skill demand</h2><p class="text-muted">Tell students and institutions which skills your roles need so training can stay connected to real opportunities.</p></div>
+<form method="post" class="card mb-4"><div class="card-body"><div class="row">
+  <div class="col-md-6 mb-3"><label>Company</label><input class="form-control" name="company_name" required></div>
+  <div class="col-md-6 mb-3"><label>Industry</label><input class="form-control" name="industry" placeholder="Data & AI"></div>
+  <div class="col-md-6 mb-3"><label>Role</label><input class="form-control" name="role" placeholder="Graduate Data Analyst" required></div>
+  <div class="col-md-6 mb-3"><label>Skill required</label><input class="form-control" name="skill_name" placeholder="SQL" required></div>
+  <div class="col-md-6 mb-3"><label>Location</label><input class="form-control" name="location" placeholder="Bengaluru / Remote"></div>
+  <div class="col-md-6 mb-3"><label>Verified official careers URL</label><input class="form-control" name="official_url" type="url" placeholder="https://company.example/careers"></div>
+  <div class="col-md-6 mb-3"><label>Importance</label><select class="form-control" name="importance"><option>required</option><option>preferred</option></select></div>
+</div><button class="btn btn-primary">Update industry demand</button></div></form>
+<h3>Current demand directory</h3>
+{% for company in companies %}<div class="card mb-3"><div class="card-body"><h5>{{ company.name }} <small class="text-muted">{{ company.industry }} · {{ company.location }}</small></h5>{% for demand in company.demands %}<span class="skill-pill">{{ demand.role }}: {{ demand.skill_name }}</span>{% endfor %}</div></div>{% endfor %}
+{% endblock %}

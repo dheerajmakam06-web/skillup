@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="auth-shell row align-items-center justify-content-center g-5">
+  <div class="col-lg-5"><span class="eyebrow">MIND MATES</span><h1>Education to Employ</h1><p class="lead text-muted">Create one secure account for your education roadmap, resume analysis, career recommendations, and company matching.</p></div>
+  <div class="col-lg-5"><section class="auth-panel card p-4"><span class="eyebrow">START YOUR JOURNEY</span><h2>Create Account</h2><form method="post" novalidate>
+    <label class="form-label">Full Name</label><input class="form-control mb-3" name="name" autocomplete="name" required>
+    <label class="form-label">Email</label><input class="form-control mb-3" name="email" type="email" autocomplete="email" required>
+    <label class="form-label">Username</label><input class="form-control mb-3" name="username" autocomplete="username" required>
+    <label class="form-label">Password</label><div class="password-field mb-3"><input class="form-control" name="password" type="password" minlength="8" autocomplete="new-password" required><button type="button" class="password-toggle" aria-label="Show password">Show</button></div>
+    <label class="form-label">Confirm Password</label><div class="password-field mb-3"><input class="form-control" name="confirm_password" type="password" minlength="8" autocomplete="new-password" required><button type="button" class="password-toggle" aria-label="Show password">Show</button></div>
+    <button class="btn btn-primary w-100">Create Account</button><p class="small text-muted mt-3 mb-0 text-center">Already have an account? <a href="{{ url_for('auth.login') }}">Login</a></p>
+  </form></section></div>
+</div>
+<script>document.querySelectorAll('.password-toggle').forEach(button => button.addEventListener('click', () => { const input = button.previousElementSibling; input.type = input.type === 'password' ? 'text' : 'password'; button.textContent = input.type === 'password' ? 'Show' : 'Hide'; }));</script>
+{% endblock %}

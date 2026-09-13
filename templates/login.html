@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="login-shell row align-items-center g-5">
+  <div class="col-lg-6"><span class="eyebrow">EDUCATION TO OPPORTUNITY</span><h1>Turn your next step into a clear plan.</h1><p class="lead text-muted">Build your education roadmap, upload your resume, discover suitable careers, and review company matches in one place.</p><div class="login-flow"><span>01 Profile</span><span>02 Resume</span><span>03 Match</span><span>04 Apply</span></div></div>
+  <div class="col-lg-6">
+    <span class="eyebrow">STEP 1 OF YOUR JOURNEY</span>
+    <h2>Welcome back</h2>
+    <p class="text-muted">Sign in to get a study plan based on your education stage, course, branch, and career direction.</p>
+    <form method="post">
+      <div class="mb-3">
+        <label>Email / Username</label>
+        <input class="form-control" name="identity" autocomplete="username" required />
+      </div>
+      <div class="mb-3">
+        <label>Password</label>
+        <div class="password-field"><input class="form-control" name="password" type="password" autocomplete="current-password" required /><button type="button" class="password-toggle" aria-label="Show password">Show</button></div>
+      </div>
+      <div class="border rounded p-3 mb-3">
+        <h5>Personalize your study plan</h5>
+        <p class="text-muted small">These selections shape the roadmap, career suggestions, and company matches shown after login.</p>
+        <div class="row g-3">
+          <div class="col-md-6"><label>Education Level</label><select class="form-select" name="education_level" required><option value="">Select education level</option>{% for group, options in education_levels.items() %}<optgroup label="{{ group }}">{% for option in options %}<option value="{{ option }}">{{ option }}</option>{% endfor %}</optgroup>{% endfor %}</select></div>
+          <div class="col-md-6"><label>Starting Class / Education Stage</label><select class="form-select" name="starting_stage"><option value="">Select stage</option>{% for stage in education_stages %}<option value="{{ stage }}">{{ stage }}</option>{% endfor %}</select></div>
+          <div class="col-md-6"><label>Course</label><input class="form-control option-search" data-target="login-course" placeholder="Search courses"><select class="form-select mt-2" name="course" id="login-course"><option value="">Select course</option>{% for group, options in course_catalog.items() %}<optgroup label="{{ group }}">{% for option in options %}<option value="{{ option }}">{{ option }}</option>{% endfor %}</optgroup>{% endfor %}</select></div>
+          <div class="col-md-6"><label>Branch / Specialization</label><select class="form-select" name="branch" id="login-branch"><option value="">Select branch after course</option></select></div>
+          <div class="col-md-8"><label>Career Goal</label><input class="form-control option-search" data-target="login-goal" placeholder="Search career goals"><select class="form-select mt-2" name="career_goal" id="login-goal"><option value="">Select career goal</option>{% for goal in career_goals %}<option value="{{ goal }}">{{ goal }}</option>{% endfor %}</select></div>
+        </div>
+      </div>
+      <button class="btn btn-primary w-100">Login</button>
+      <div class="auth-divider"><span>OR</span></div>
+      <button type="button" class="btn btn-outline-primary w-100 mb-2" id="passkey-login">Login with fingerprint / passkey</button>
+      <button type="button" class="btn btn-outline-secondary w-100" id="eye-login">Verify with eye</button>
+      <p class="small text-muted mt-3 mb-0 text-center">Forgot password? Contact support. New to Mind Mates? <a href="{{ url_for('auth.register') }}">Create Student Account</a></p>
+    </form>
+  </div>
+</div>
+<script>
+const loginCourse = document.getElementById('login-course');
+const loginBranch = document.getElementById('login-branch');
+const loginBranches = {{ branch_catalog|tojson }};
+function updateLoginBranches() { const selected = loginCourse.value; const key = Object.keys(loginBranches).find(group => group.toLowerCase().includes(selected.toLowerCase())) || selected; const branches = loginBranches[key] || []; loginBranch.innerHTML = '<option value="">Select branch after course</option>'; branches.forEach(branch => { const option = document.createElement('option'); option.value = branch; option.textContent = branch; loginBranch.appendChild(option); }); }
+loginCourse.addEventListener('change', updateLoginBranches);
+document.querySelectorAll('.option-search').forEach(search => search.addEventListener('input', () => { const target = document.getElementById(search.dataset.target); const query = search.value.toLowerCase(); Array.from(target.options).forEach(option => { option.hidden = Boolean(option.value) && !option.textContent.toLowerCase().includes(query); }); }));
+document.querySelectorAll('.password-toggle').forEach(button => button.addEventListener('click', () => { const input = button.previousElementSibling; input.type = input.type === 'password' ? 'text' : 'password'; button.textContent = input.type === 'password' ? 'Show' : 'Hide'; }));
+document.getElementById('passkey-login').addEventListener('click', () => { if (!window.PublicKeyCredential) { alert('Fingerprint/passkey login is not available on this device. Please use your password.'); return; } alert('Passkey login needs to be registered for this account first. Please use your password.'); });
+document.getElementById('eye-login').addEventListener('click', () => alert('Eye verification is not configured as an authenticator yet. Your camera will not be activated. Please use your password.'));
+</script>
+{% endblock %}

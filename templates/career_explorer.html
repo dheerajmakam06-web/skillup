@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="career-explorer-hero mb-4"><span class="eyebrow">CHOOSE YOUR NEXT DIRECTION</span><h1>Explore a career path</h1><p>{{ 'Your cards are ranked against your saved profile and career goal.' if recommendations else 'Open a career to see what to learn, what to build, and how to move from your current stage toward your first role.' }}</p></div>
+<div class="row">
+{% for c in careers %}
+  <div class="col-md-6 col-xl-3">
+    <div class="card career-card mb-3 h-100">
+      <div class="card-body">
+        <span class="career-number">0{{ loop.index }}</span>{% set match = (recommendations|selectattr('career.id', 'equalto', c.id)|list|first) if recommendations else none %}<h5>{{ c.title }}</h5>{% if match %}<span class="match-score">{{ match.match_percent }}% profile fit</span>{% endif %}
+        <p>{{ c.description }}</p>
+        <a class="btn btn-sm btn-primary" href="{{ url_for('career.detail', career_id=c.id) }}">Open step-by-step path</a>
+      </div>
+    </div>
+  </div>
+{% endfor %}
+</div>
+{% endblock %}

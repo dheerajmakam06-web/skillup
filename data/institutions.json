@@ -1,0 +1,21 @@
+{
+  "note": "Starter institution directory for selectable options. Use the Google search action for institutions not listed; this app does not claim to contain every Indian college.",
+  "institutions": [
+    {"name": "Indian Institute of Technology Hyderabad", "state": "Telangana", "city": "Hyderabad"},
+    {"name": "International Institute of Information Technology Hyderabad", "state": "Telangana", "city": "Hyderabad"},
+    {"name": "Osmania University", "state": "Telangana", "city": "Hyderabad"},
+    {"name": "Jawaharlal Nehru Technological University Hyderabad", "state": "Telangana", "city": "Hyderabad"},
+    {"name": "Indian Institute of Technology Madras", "state": "Tamil Nadu", "city": "Chennai"},
+    {"name": "Anna University", "state": "Tamil Nadu", "city": "Chennai"},
+    {"name": "Indian Institute of Science", "state": "Karnataka", "city": "Bengaluru"},
+    {"name": "Indian Institute of Technology Bengaluru", "state": "Karnataka", "city": "Bengaluru"},
+    {"name": "University of Delhi", "state": "Delhi", "city": "New Delhi"},
+    {"name": "Indian Institute of Technology Delhi", "state": "Delhi", "city": "New Delhi"},
+    {"name": "Indian Institute of Technology Bombay", "state": "Maharashtra", "city": "Mumbai"},
+    {"name": "Savitribai Phule Pune University", "state": "Maharashtra", "city": "Pune"},
+    {"name": "Indian Institute of Technology Kanpur", "state": "Uttar Pradesh", "city": "Kanpur"},
+    {"name": "Banaras Hindu University", "state": "Uttar Pradesh", "city": "Varanasi"},
+    {"name": "Indian Institute of Technology Kharagpur", "state": "West Bengal", "city": "Kharagpur"},
+    {"name": "University of Kerala", "state": "Kerala", "city": "Thiruvananthapuram"}
+  ]
+}

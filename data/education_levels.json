@@ -1,0 +1,18 @@
+{
+  "Pre-Primary": ["Nursery", "LKG", "UKG"],
+  "Primary School": ["Class 1", "Class 2", "Class 3", "Class 4", "Class 5"],
+  "Upper Primary / Middle School": ["Class 6", "Class 7", "Class 8"],
+  "Secondary School": ["Class 9", "Class 10"],
+  "Higher Secondary / Intermediate": ["Class 11", "Class 12", "Intermediate", "+1", "+2"],
+  "Diploma": ["Polytechnic Diploma", "Engineering Diploma", "Non-Engineering Diploma", "Vocational Diploma"],
+  "ITI": ["Industrial Training Institute", "ITI Trades"],
+  "Undergraduate / Bachelor's Degree": ["B.Tech", "B.E.", "B.Sc", "BCA", "B.Com", "BBA", "BA", "B.Arch", "MBBS", "BDS", "B.Pharm", "Pharm.D", "BPT", "B.Sc Nursing", "B.A. LL.B", "BBA LL.B", "LL.B", "B.Ed", "BSW", "Other Bachelor's Degree"],
+  "Postgraduate / Master's Degree": ["M.Tech", "M.E.", "M.Sc", "MCA", "MBA", "M.Com", "MA", "M.Arch", "M.Pharm", "MDS", "M.Ed", "MSW", "LL.M", "Other Master's Degree"],
+  "PG Diploma": ["PG Diploma", "PGDM", "Technical PG Diploma", "Professional PG Diploma"],
+  "Doctoral / Research": ["Ph.D.", "Doctoral Research", "Other Research Program"],
+  "Professional Education": ["CA", "CS", "CMA", "Medical", "Dental", "Pharmacy", "Nursing", "Law", "Architecture", "Other Professional Course"],
+  "Vocational / Skill Education": ["Skill Development", "Vocational Training", "Technical Training", "Short-Term Skill Courses"],
+  "Certificate Courses": ["Programming", "Data Analytics", "Digital Marketing", "Cybersecurity", "Cloud Computing", "Languages", "Technical Certificates", "Other Certificate"],
+  "Distance / Online Education": ["Online Bachelor's", "Online Master's", "Distance Bachelor's", "Distance Master's", "Online Diploma", "Online Certificate"],
+  "Other / Not Listed": ["Other / Not Listed"]
+}

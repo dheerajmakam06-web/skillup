@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="d-flex flex-wrap justify-content-between align-items-end gap-3 mb-4">
+  <div>
+    <span class="eyebrow">PERSONALIZED LEARNING PLAN</span>
+    <h2 class="mb-1">My Roadmap</h2>
+    <p class="text-muted mb-0">Your roadmap follows the course and specialization saved in your profile.</p>
+  </div>
+  <form method="post" action="{{ url_for('student.roadmap') }}" class="roadmap-course-form">
+    <label class="form-label small fw-semibold mb-1" for="roadmap-course">Change your path</label>
+    <div class="d-flex gap-2">
+      <select id="roadmap-course" name="course" class="form-select">
+        <option value="">Choose a course</option>
+        {% for option in available_courses %}
+          <option value="{{ option }}" {% if course == option %}selected{% endif %}>{{ option }}</option>
+        {% endfor %}
+      </select>
+      <button class="btn btn-primary" type="submit">Update</button>
+    </div>
+    <select id="roadmap-branch" name="branch" class="form-select mt-2">
+      <option value="">Keep current specialization</option>
+      {% for branch in course_branches.get(course, []) %}
+        <option value="{{ branch }}" {% if profile.branch == branch %}selected{% endif %}>{{ branch }}</option>
+      {% endfor %}
+    </select>
+  </form>
+</div>
+<script>
+const roadmapCourses = {{ course_branches|tojson }};
+const roadmapCourse = document.getElementById('roadmap-course');
+const roadmapBranch = document.getElementById('roadmap-branch');
+roadmapCourse.addEventListener('change', () => {
+  roadmapBranch.innerHTML = '<option value="">Choose specialization</option>';
+  (roadmapCourses[roadmapCourse.value] || []).forEach(branch => {
+    const option = document.createElement('option');
+    option.value = branch;
+    option.textContent = branch;
+    roadmapBranch.appendChild(option);
+  });
+});
+</script>
+
+<div class="card roadmap-hero mb-4">
+  <div class="card-body p-4">
+    <div class="d-flex justify-content-between align-items-start gap-3">
+      <div>
+        <span class="badge bg-primary-subtle text-primary mb-2">{{ roadmap.course_name }}</span>
+        <h3>Your {{ roadmap.course_name }} Learning Roadmap</h3>
+        <p class="mb-2 text-muted">{{ roadmap.description }}</p>
+        <small class="text-muted">Estimated learning time: {{ roadmap.estimated_time }}</small>
+      </div>
+      <div class="roadmap-count">{{ progress_percent }}%<small> complete</small></div>
+    </div>
+    <div class="progress mt-4" aria-label="Course progress"><div class="progress-bar" style="width: {{ progress_percent }}%"></div></div>
+  </div>
+</div>
+
+{% if next_stage %}
+<div class="alert alert-success mb-4"><strong>Next recommended topic:</strong> {{ next_stage.title }} - {{ next_stage.topics[0] }}</div>
+{% else %}
+<div class="alert alert-success mb-4"><strong>Roadmap complete.</strong> Review your projects and keep building your portfolio.</div>
+{% endif %}
+
+<div class="card guidance-card mb-4"><div class="card-body p-4"><span class="eyebrow">EDUCATION STAGE GUIDANCE</span><h4>{{ guidance.title }}</h4><p class="text-muted mb-0">{{ guidance.description }}</p></div></div>
+
+<div class="roadmap-timeline">
+  {% for stage in roadmap.stages %}
+  <article class="roadmap-stage">
+    <div class="roadmap-marker">{{ '%02d'|format(loop.index) }}</div>
+    <div class="card roadmap-stage-card {% if stage.key in completed_modules %}roadmap-stage-complete{% endif %}">
+      <div class="card-body p-4">
+        <div class="d-flex flex-wrap justify-content-between gap-2 mb-2">
+          <div><span class="eyebrow">{{ stage.duration }} · {{ stage.difficulty }}</span><h4 class="mb-1">{{ stage.title }}</h4></div>
+          <form method="post" action="{{ url_for('student.roadmap_progress') }}">
+            <input type="hidden" name="module_key" value="{{ stage.key }}">
+            <label class="stage-check"><input type="checkbox" name="completed" {% if stage.key in completed_modules %}checked{% endif %} onchange="this.form.submit()"><span>{{ 'Completed' if stage.key in completed_modules else 'Mark complete' }}</span></label>
+          </form>
+        </div>
+        <p class="text-muted">{{ stage.focus }}</p>
+        <div class="roadmap-topics"><strong>Topics</strong><div class="skill-pills mt-2">{% for topic in stage.topics %}<span class="skill-pill">{{ topic }}</span>{% endfor %}</div></div>
+        <div class="milestone mt-3"><strong>Project:</strong> {{ stage.project }}</div>
+      </div>
+    </div>
+  </article>
+  {% endfor %}
+</div>
+
+<div class="alert alert-warning mt-4 mb-0">Changing the course updates the description, modules, topics, projects, next topic, and progress view to the newly selected course.</div>
+{% endblock %}

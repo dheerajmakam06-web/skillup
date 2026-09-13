@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="jumbotron p-5 bg-light rounded">
+  <h1>Mind Mates</h1>
+  <p class="lead">A complete journey from class to career: understand your strengths, discover your skill gaps, build a personalized roadmap, and find employers looking for your skills.</p>
+  <p>
+    <a class="btn btn-primary btn-lg" href="{{ url_for('auth.register') }}">Start Your Journey</a>
+    <a class="btn btn-outline-primary btn-lg" href="{{ url_for('career.explorer') }}">Explore Career Paths</a>
+  </p>
+</div>
+
+<section class="mt-4">
+  <h3>From education to employment</h3>
+  <p>Mind Mates supports students from school and higher education through career choice, skill development, resume-based company matching, and live industry demand. Institutions can use the same demand signals to keep training relevant.</p>
+</section>
+{% endblock %}

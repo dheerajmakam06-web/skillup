@@ -1,0 +1,14 @@
+Start-Process "http://127.0.0.1:5000"Flask>=2.0
+Flask-SQLAlchemy
+python-dotenv
+Werkzeug
+pandas
+numpy
+scikit-learn
+spacy
+sentence-transformers
+Jinja2
+flask-wtf
+pypdf
+python-docx
+gunicorn; platform_system != "Windows"

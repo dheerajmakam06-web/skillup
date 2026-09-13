@@ -1,0 +1,110 @@
+{
+  "B.Com": {
+    "description": "Build accounting, commerce, finance, business technology, and workplace skills for modern commerce careers.",
+    "estimated_time": "18-24 months",
+    "stages": [
+      {"title": "Accounting Fundamentals", "difficulty": "Beginner", "topics": ["Financial Accounting", "Journal and Ledger", "Trial Balance", "Final Accounts"], "project": "Prepare accounts for a small business."},
+      {"title": "Business and Economics", "difficulty": "Beginner", "topics": ["Business Economics", "Business Environment", "Business Communication", "Business Law"], "project": "Write a business environment case study."},
+      {"title": "Finance and Taxation", "difficulty": "Intermediate", "topics": ["Financial Management", "Banking", "Income Tax", "GST"], "project": "Create a basic finance and tax planning report."},
+      {"title": "Business Technology", "difficulty": "Intermediate", "topics": ["MS Excel", "Tally", "Accounting Software", "Basic Data Analysis"], "project": "Build an Excel and accounting-software dashboard."},
+      {"title": "Career Skills", "difficulty": "Intermediate", "topics": ["Communication", "Resume Building", "Interview Preparation"], "project": "Create a commerce-focused resume and mock interview recording."},
+      {"title": "Projects", "difficulty": "Advanced", "topics": ["Accounting Project", "Financial Analysis Project", "Business Case Study"], "project": "Publish a portfolio with three business projects."}
+    ]
+  },
+  "B.Com Honours": {
+    "description": "Develop deeper accounting, audit, taxation, finance, and analytical capability for honours-level commerce study.",
+    "estimated_time": "24-30 months",
+    "stages": [
+      {"title": "Advanced Accounting", "difficulty": "Intermediate", "topics": ["Corporate Accounting", "Partnership Accounts", "Final Accounts", "Accounting Standards"], "project": "Analyze the annual accounts of a listed company."},
+      {"title": "Audit and Business Law", "difficulty": "Intermediate", "topics": ["Auditing", "Internal Controls", "Company Law", "Business Ethics"], "project": "Prepare an internal-control review for a small company."},
+      {"title": "Finance and Taxation", "difficulty": "Advanced", "topics": ["Financial Management", "Income Tax", "GST", "Investment Basics"], "project": "Build a tax and investment comparison report."},
+      {"title": "Analytics and Technology", "difficulty": "Intermediate", "topics": ["Advanced Excel", "Tally", "Power BI", "Financial Modeling"], "project": "Create a Power BI financial performance dashboard."},
+      {"title": "Professional Practice", "difficulty": "Intermediate", "topics": ["Research", "Communication", "Resume Building", "Interview Preparation"], "project": "Write and present a commerce research brief."},
+      {"title": "Honours Capstone", "difficulty": "Advanced", "topics": ["Accounting Research", "Financial Analysis", "Business Case Study"], "project": "Complete a research-backed finance or accounting capstone."}
+    ]
+  },
+  "BCA": {
+    "description": "Build practical computer application skills through programming, databases, web development, cloud basics, and projects.",
+    "estimated_time": "18-24 months",
+    "stages": [
+      {"title": "Computer Fundamentals", "difficulty": "Beginner", "topics": ["Computer Basics", "Operating Systems", "Computer Networks"], "project": "Document a computer setup and basic network."},
+      {"title": "Programming", "difficulty": "Beginner", "topics": ["C", "Python", "Java", "Data Structures"], "project": "Build a command-line application in Python or Java."},
+      {"title": "Database", "difficulty": "Intermediate", "topics": ["SQL", "DBMS", "MySQL", "Database Design"], "project": "Build a database-backed student or inventory system."},
+      {"title": "Web Development", "difficulty": "Intermediate", "topics": ["HTML", "CSS", "JavaScript", "Backend Development"], "project": "Ship a responsive web application with an API."},
+      {"title": "Advanced Skills", "difficulty": "Intermediate", "topics": ["Software Engineering", "Cloud Basics", "Git and GitHub", "Testing"], "project": "Deploy a tested application and document its architecture."},
+      {"title": "Projects", "difficulty": "Advanced", "topics": ["Mini Project", "Major Project", "Portfolio"], "project": "Complete a major application and present it in a portfolio."}
+    ]
+  },
+  "B.Tech CSE": {
+    "description": "Progress from programming and computer science foundations to software development, specialization, and professional projects.",
+    "estimated_time": "30-36 months",
+    "stages": [
+      {"title": "Programming Fundamentals", "difficulty": "Beginner", "topics": ["C", "C++", "Python", "Java"], "project": "Build four small programs and publish them with documentation."},
+      {"title": "Data Structures and Algorithms", "difficulty": "Intermediate", "topics": ["Arrays", "Linked Lists", "Stacks", "Queues", "Trees", "Graphs", "Sorting", "Searching"], "project": "Create an algorithm visualizer or problem-solving portfolio."},
+      {"title": "Computer Science Core", "difficulty": "Intermediate", "topics": ["DBMS", "Operating Systems", "Computer Networks", "Computer Organization"], "project": "Design and explain a database-backed networked system."},
+      {"title": "Development", "difficulty": "Intermediate", "topics": ["Web Development", "APIs", "Git and GitHub", "Testing"], "project": "Ship a full-stack application with an API and tests."},
+      {"title": "Specialization", "difficulty": "Advanced", "topics": ["AI / ML", "Data Science", "Cloud Computing", "Cyber Security"], "project": "Complete one specialization project with a technical report."},
+      {"title": "Projects", "difficulty": "Advanced", "topics": ["Mini Project", "Major Project", "Portfolio"], "project": "Complete a major project, deployment, and portfolio presentation."}
+    ]
+  },
+  "Data Science": {
+    "description": "Learn to collect, analyze, visualize, and model data to support reliable decisions and intelligent products.",
+    "estimated_time": "18-24 months",
+    "stages": [
+      {"title": "Python", "difficulty": "Beginner", "topics": ["Python Basics", "Functions", "OOP", "Libraries"], "project": "Build a Python data-processing utility."},
+      {"title": "Mathematics and Statistics", "difficulty": "Intermediate", "topics": ["Statistics", "Probability", "Mean", "Median", "Standard Deviation", "Correlation"], "project": "Explain a dataset using descriptive statistics."},
+      {"title": "Data Analysis", "difficulty": "Intermediate", "topics": ["NumPy", "Pandas", "Data Cleaning", "EDA"], "project": "Complete an exploratory data analysis with findings."},
+      {"title": "Data Visualization", "difficulty": "Intermediate", "topics": ["Matplotlib", "Seaborn", "Charts", "Dashboards"], "project": "Publish a dashboard that answers a business question."},
+      {"title": "Machine Learning", "difficulty": "Advanced", "topics": ["Regression", "Classification", "Clustering", "Model Evaluation"], "project": "Build and evaluate an end-to-end prediction model."},
+      {"title": "Projects", "difficulty": "Advanced", "topics": ["Data Analysis Project", "Machine Learning Project", "End-to-End Data Science Project"], "project": "Publish a complete data science portfolio project."}
+    ]
+  },
+  "Java": {
+    "description": "Learn Java from language fundamentals through object-oriented design, advanced programming, databases, APIs, and projects.",
+    "estimated_time": "12-18 months",
+    "stages": [
+      {"title": "Java Fundamentals", "difficulty": "Beginner", "topics": ["Java Introduction", "JDK, JRE, JVM", "Variables", "Data Types", "Operators"], "project": "Build a command-line Java utility."},
+      {"title": "Control Flow", "difficulty": "Beginner", "topics": ["if/else", "switch", "for loop", "while loop", "do-while"], "project": "Create a menu-driven Java application."},
+      {"title": "Object-Oriented Programming", "difficulty": "Intermediate", "topics": ["Classes", "Objects", "Inheritance", "Polymorphism", "Abstraction", "Encapsulation"], "project": "Model a real-world system using Java classes."},
+      {"title": "Advanced Java", "difficulty": "Intermediate", "topics": ["Exception Handling", "Collections", "Generics", "Multithreading", "File Handling"], "project": "Build a concurrent file-processing application."},
+      {"title": "Database and Development", "difficulty": "Advanced", "topics": ["JDBC", "SQL", "APIs", "Git and GitHub"], "project": "Build a Java API connected to a relational database."},
+      {"title": "Projects", "difficulty": "Advanced", "topics": ["Java Mini Project", "Java Application", "Final Project"], "project": "Complete and deploy a Java application with documentation."}
+    ]
+  },
+  "Python": {
+    "description": "Build a strong Python foundation and use it to create useful scripts, applications, and data projects.",
+    "estimated_time": "9-15 months",
+    "stages": [
+      {"title": "Python Basics", "difficulty": "Beginner", "topics": ["Python Introduction", "Variables and Data Types", "Operators", "Input and Output"], "project": "Create a command-line calculator and utility."},
+      {"title": "Control Flow", "difficulty": "Beginner", "topics": ["Conditional Statements", "Loops", "Comprehensions", "Debugging"], "project": "Build a text-based quiz or game."},
+      {"title": "Collections and Functions", "difficulty": "Intermediate", "topics": ["Lists", "Tuples", "Sets and Dictionaries", "Functions"], "project": "Build a reusable contact or inventory manager."},
+      {"title": "OOP and Exceptions", "difficulty": "Intermediate", "topics": ["OOP", "Exception Handling", "File Handling", "Testing"], "project": "Build a tested file-based application."},
+      {"title": "Modules and Packages", "difficulty": "Intermediate", "topics": ["Modules", "Packages", "Virtual Environments", "APIs"], "project": "Package a Python tool and consume a public API."},
+      {"title": "Projects", "difficulty": "Advanced", "topics": ["Automation Project", "Web Project", "Data Project"], "project": "Publish three Python projects with README files."}
+    ]
+  },
+  "Machine Learning": {
+    "description": "Learn the complete machine learning workflow from data preparation and statistics to deployment and monitoring.",
+    "estimated_time": "12-18 months",
+    "stages": [
+      {"title": "Python and Data Foundations", "difficulty": "Beginner", "topics": ["Python", "NumPy", "Pandas", "Data Cleaning"], "project": "Prepare and document a real dataset."},
+      {"title": "Mathematics and Statistics", "difficulty": "Intermediate", "topics": ["Linear Algebra", "Probability", "Statistics", "Correlation"], "project": "Explain model behavior using statistical evidence."},
+      {"title": "Supervised Learning", "difficulty": "Intermediate", "topics": ["Regression", "Classification", "Feature Engineering", "Cross Validation"], "project": "Build a supervised learning pipeline."},
+      {"title": "Unsupervised and Deep Learning", "difficulty": "Advanced", "topics": ["Clustering", "Dimensionality Reduction", "Neural Networks", "Deep Learning"], "project": "Compare clustering or neural-network approaches."},
+      {"title": "Evaluation and Deployment", "difficulty": "Advanced", "topics": ["Model Evaluation", "Explainability", "APIs", "Docker", "MLOps"], "project": "Deploy a model as a documented API."},
+      {"title": "Projects", "difficulty": "Advanced", "topics": ["Prediction Project", "Recommendation Project", "Production ML Project"], "project": "Publish an end-to-end machine learning portfolio."}
+    ]
+  },
+  "Web Development": {
+    "description": "Learn to design, build, test, and deploy responsive web experiences and full-stack applications.",
+    "estimated_time": "9-15 months",
+    "stages": [
+      {"title": "Web Foundations", "difficulty": "Beginner", "topics": ["HTML", "CSS", "Accessibility", "Responsive Design"], "project": "Build a responsive personal website."},
+      {"title": "JavaScript", "difficulty": "Beginner", "topics": ["JavaScript Basics", "DOM", "Events", "Fetch and JSON"], "project": "Build an interactive browser application."},
+      {"title": "Frontend Development", "difficulty": "Intermediate", "topics": ["Components", "State", "Forms", "Frontend Frameworks"], "project": "Build a multi-page frontend with reusable components."},
+      {"title": "Backend and APIs", "difficulty": "Intermediate", "topics": ["Python or Node.js", "REST APIs", "Authentication", "SQL"], "project": "Build a full-stack application with login."},
+      {"title": "Engineering and Deployment", "difficulty": "Advanced", "topics": ["Git", "Testing", "Docker", "Cloud Deployment"], "project": "Deploy a tested application and document its architecture."},
+      {"title": "Projects", "difficulty": "Advanced", "topics": ["Portfolio", "E-commerce App", "Production Web App"], "project": "Publish three polished web projects."}
+    ]
+  }
+}

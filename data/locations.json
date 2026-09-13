@@ -1,0 +1,17 @@
+{
+  "states_and_union_territories": [
+    "Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", "Chhattisgarh", "Goa", "Gujarat", "Haryana", "Himachal Pradesh", "Jharkhand", "Karnataka", "Kerala", "Madhya Pradesh", "Maharashtra", "Manipur", "Meghalaya", "Mizoram", "Nagaland", "Odisha", "Punjab", "Rajasthan", "Sikkim", "Tamil Nadu", "Telangana", "Tripura", "Uttar Pradesh", "Uttarakhand", "West Bengal", "Andaman and Nicobar Islands", "Chandigarh", "Dadra and Nagar Haveli and Daman and Diu", "Delhi", "Jammu and Kashmir", "Ladakh", "Lakshadweep", "Puducherry"
+  ],
+  "districts_by_state": {
+    "Andhra Pradesh": ["Alluri Sitharama Raju", "Anakapalli", "Anantapur", "Chittoor", "East Godavari", "Guntur", "Kadapa", "Kakinada", "Krishna", "Kurnool", "Nellore", "Prakasam", "Srikakulam", "Tirupati", "Vijayawada", "Visakhapatnam", "Vizianagaram", "West Godavari"],
+    "Telangana": ["Adilabad", "Bhadradri Kothagudem", "Hyderabad", "Jagtial", "Jangaon", "Jayashankar Bhupalpally", "Jogulamba Gadwal", "Kamareddy", "Karimnagar", "Khammam", "Mahbubnagar", "Medak", "Medchal-Malkajgiri", "Nalgonda", "Nirmal", "Nizamabad", "Rangareddy", "Sangareddy", "Siddipet", "Suryapet", "Warangal", "Yadadri Bhuvanagiri"],
+    "Karnataka": ["Bengaluru Urban", "Belagavi", "Bellary", "Dakshina Kannada", "Dharwad", "Hassan", "Hubballi", "Kalaburagi", "Mysuru", "Shivamogga", "Tumakuru", "Udupi"],
+    "Tamil Nadu": ["Chennai", "Coimbatore", "Cuddalore", "Madurai", "Salem", "Thanjavur", "Tiruchirappalli", "Tirunelveli", "Tiruppur", "Vellore"],
+    "Maharashtra": ["Ahmednagar", "Aurangabad", "Mumbai City", "Mumbai Suburban", "Nagpur", "Nashik", "Pune", "Solapur", "Thane"],
+    "Delhi": ["Central Delhi", "East Delhi", "New Delhi", "North Delhi", "South Delhi", "West Delhi"],
+    "Kerala": ["Alappuzha", "Ernakulam", "Kannur", "Kollam", "Kottayam", "Kozhikode", "Malappuram", "Palakkad", "Thiruvananthapuram", "Thrissur"],
+    "West Bengal": ["Bardhaman", "Darjeeling", "Hooghly", "Howrah", "Kolkata", "Murshidabad", "Nadia", "North 24 Parganas", "South 24 Parganas"],
+    "Uttar Pradesh": ["Agra", "Allahabad / Prayagraj", "Bareilly", "Ghaziabad", "Gorakhpur", "Kanpur Nagar", "Lucknow", "Meerut", "Noida / Gautam Buddha Nagar", "Varanasi"],
+    "Other": ["District not listed"]
+  }
+}

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="mb-4">
+  <span class="eyebrow">INDUSTRY ALIGNMENT</span>
+  <h2>Company matches</h2>
+  <p class="text-muted">See which employers and roles are closest to your current skills, plus the next skills to build.</p>
+</div>
+<form class="row g-2 mb-4" method="get"><div class="col-md-5"><input class="form-control" name="q" value="{{ query }}" placeholder="Search company, role, skill, or industry"></div><div class="col-md-3"><select class="form-select" name="letter"><option value="">All letters</option>{% for letter in 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' %}<option value="{{ letter }}" {% if letter == letter_filter %}selected{% endif %}>{{ letter }}</option>{% endfor %}</select></div><div class="col-md-2"><button class="btn btn-primary w-100">Search</button></div></form>
+<p class="small text-muted">Company profile recommendations are estimates. They are not current vacancies and do not guarantee employment.</p>
+<div class="row">
+{% for match in matches %}
+  <div class="col-md-6 col-xl-4 mb-3">
+    <div class="card h-100"><div class="card-body">
+      <div class="d-flex justify-content-between align-items-start"><div><h4>{{ match.company.name }}</h4><p>{{ match.role }} · {{ match.company.industry }}</p></div><span class="badge bg-primary">{{ match.match_percent }}%</span></div>
+      <p class="small text-muted">{{ match.company.location }} · {{ match.company.opportunity_type|title }}</p>
+      <p class="company-rating">★ {{ '%.1f'|format(match.company.rating or 0) }} <span>{{ match.company.category|replace('_', ' ')|title }}</span></p>
+      <p class="small text-muted">Skills {{ match.skill_percent }}% · Projects {{ match.project_percent }}% · Education {{ match.education_percent }}% · Experience {{ match.experience_percent }}% · Certifications {{ match.certification_percent }}%</p>
+      {% if match.course_match %}<span class="badge bg-success-subtle text-success mb-2">Course aligned</span>{% endif %}
+      <p><strong>Skills you have:</strong> {{ match.matched|join(', ') or 'None yet' }}</p>
+      <p class="mb-0"><strong>Skills to build:</strong> {{ match.missing|join(', ') or 'You meet the listed skills' }}</p><a class="btn btn-sm btn-outline-primary mt-3" href="{{ url_for('student.company_detail', company_id=match.company.id, role=match.role) }}">Review profile</a>
+    </div></div>
+  </div>
+{% else %}<p>No employer demand is available yet.</p>{% endfor %}
+</div>
+{% endblock %}

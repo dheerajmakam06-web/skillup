@@ -1,0 +1,10 @@
+{
+  "Higher Secondary / Intermediate": ["MPC", "BiPC", "MEC", "CEC", "HEC", "Commerce", "Arts / Humanities", "Vocational", "Other"],
+  "Diploma": ["Engineering", "Non-Engineering", "Vocational", "Other"],
+  "ITI": ["Technical Trades", "Service Trades", "Other"],
+  "Undergraduate / Bachelor's Degree": ["Engineering", "Science", "Computer Applications", "Commerce", "Business", "Arts / Humanities", "Medical", "Law", "Education", "Other"],
+  "Postgraduate / Master's Degree": ["Technology", "Science", "Computer Applications", "Business", "Arts / Humanities", "Medical", "Law", "Education", "Other"],
+  "Professional Education": ["Accounting", "Company Secretary", "Cost and Management Accounting", "Medical", "Dental", "Pharmacy", "Nursing", "Law", "Architecture", "Other"],
+  "Vocational / Skill Education": ["Skill Development", "Vocational Training", "Technical Training", "Short-Term Skill Courses"],
+  "Other": ["Other"]
+}

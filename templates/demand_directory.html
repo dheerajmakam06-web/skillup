@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="demand-hero mb-4"><span class="eyebrow">LIVE INDUSTRY SIGNALS</span><h2>Industry demand directory</h2><p class="text-muted">Use these employer signals to choose your next skills, roadmap milestones, and career direction.</p><div class="related-links"><a href="{{ url_for('career.explorer') }}">Explore careers</a><a href="{{ url_for('public_roadmap') }}">Build a roadmap</a>{% if session.get('user_id') and session.get('user_role') == 'student' %}<a href="{{ url_for('student.companies') }}">Review company matches</a>{% endif %}</div></div>
+{% for company in companies %}
+<section class="card demand-company mb-3"><div class="card-body"><div class="d-flex justify-content-between flex-wrap gap-2"><div><h4>{{ company.name }}</h4><span class="text-muted">{{ company.industry }} · {{ company.location }}</span></div>{% if company.official_url %}<a class="btn btn-sm btn-primary" href="{{ company.official_url }}" target="_blank" rel="noopener">Official careers</a>{% endif %}</div><div class="skill-pills mt-3">{% for demand in company.demands %}<span class="skill-pill">{{ demand.role }}: {{ demand.skill_name }}</span>{% endfor %}</div><div class="related-company-links"><a href="{{ url_for('career.explorer') }}">Find related career paths</a><a href="{{ url_for('public_roadmap') }}">Plan these skills</a></div></div></section>
+{% else %}<p>No industry demand has been published yet.</p>{% endfor %}
+{% endblock %}
